@@ -1,5 +1,8 @@
 package be.kokotchy.api.tinytinyrss.query;
 
+import be.kokotchy.api.tinytinyrss.response.ResponseContent;
+import com.fasterxml.jackson.core.JsonParser;
+
 /**
  * Created with IntelliJ IDEA.
  * User: canas
@@ -9,7 +12,12 @@ package be.kokotchy.api.tinytinyrss.query;
  */
 public class GetApiLevelQuery extends DefaultTinyTinyRSSQuery {
 
-    public GetApiLevelQuery() {
-        super("getApiLevel");
+    public GetApiLevelQuery(int apiLevel) {
+        super(apiLevel, "getApiLevel");
+    }
+
+    @Override
+    public ResponseContent readContent(JsonParser jsonParser) {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

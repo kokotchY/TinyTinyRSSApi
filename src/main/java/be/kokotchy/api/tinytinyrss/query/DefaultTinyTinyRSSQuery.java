@@ -1,5 +1,7 @@
 package be.kokotchy.api.tinytinyrss.query;
 
+import com.fasterxml.jackson.core.JsonParser;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,12 +12,14 @@ import java.util.Map;
  * Time: 6:28 PM
  * To change this template use File | Settings | File Templates.
  */
-public class DefaultTinyTinyRSSQuery implements TinyTinyRSSQuery {
+public abstract class DefaultTinyTinyRSSQuery implements TinyTinyRSSQuery {
 
-    private String operation;
+	private int apiLevel;
+	private String operation;
 
-    public DefaultTinyTinyRSSQuery(String operation) {
-        this.operation = operation;
+    public DefaultTinyTinyRSSQuery(int apiLevel, String operation) {
+	    this.apiLevel = apiLevel;
+	    this.operation = operation;
     }
 
     @Override
@@ -27,4 +31,13 @@ public class DefaultTinyTinyRSSQuery implements TinyTinyRSSQuery {
     public Map<String, String> getParameters() {
         return new HashMap<>();
     }
+
+	@Override
+	public boolean hasReadContent() {
+		return false;
+	}
+
+	public int getApiLevel() {
+		return apiLevel;
+	}
 }

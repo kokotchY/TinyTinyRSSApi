@@ -1,5 +1,7 @@
 package be.kokotchy.api.tinytinyrss.model;
 
+import be.kokotchy.api.tinytinyrss.response.ResponseContent;
+
 import java.util.Map;
 
 /**
@@ -15,6 +17,7 @@ public class TinyTinyRSSResponse {
     private TinyTinyRSSStatus status;
     private Map<String, String> content;
     private TinyTinyRSSError error;
+	private ResponseContent content2;
 
     public Map<String, String> getContent() {
         return content;
@@ -57,4 +60,12 @@ public class TinyTinyRSSResponse {
                 ", error=" + error +
                 '}';
     }
+
+	public ResponseContent getContent2() {
+		return content2;
+	}
+
+	public void setContent2(ResponseContent content2) {
+		this.content2 = content2;
+	}
 }
